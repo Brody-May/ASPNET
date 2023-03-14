@@ -17,5 +17,15 @@ namespace Testing
         {
             return _conn.Query<Product>("SELECT * FROM PRODUCTS;");
         }
+
+        public object GetProduct(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Product GetProductById(int id)
+        {
+            return _conn.QuerySingle<Product>("SELECT * FROM PRODUCTS WHERE PRODUCTID = @id", new { id = id });
+        }
     }
 }
